@@ -1,6 +1,6 @@
 const express = require("express");
-const { CategoryModel } = require("../Models/Category.Model");
 require("dotenv").config();
+const { CategoryModel } = require("../Models/Category.Model");
 
 const CategoryRouter = express.Router();
 
