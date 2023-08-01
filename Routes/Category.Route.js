@@ -17,4 +17,18 @@ CategoryRouter.get("/", async (req, res) => {
   }
 });
 
+// For adding Categories
+CategoryRouter.post("/add", async (req, res) => {
+  try {
+    const category = await new CategoryModel(req.body);
+    await category.save()
+    res.status(200).send({ message: "Category Succesfully added" });
+  } catch (e) {
+    res.status(401).send({
+      message: "Error in adding category",
+      error: e,
+    });
+  }
+});
+
 module.exports = { CategoryRouter };
