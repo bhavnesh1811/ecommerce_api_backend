@@ -1,12 +1,15 @@
 const express = require("express");
 require("dotenv").config();
 const { connection } = require("./Configs/db.js");
+const { CategoryRouter } = require("./Routes/Category.Route.js");
 const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.status(200).send("Api is working fine.");
 });
+
+app.use("/categories", CategoryRouter);
 
 app.listen(process.env.port, async () => {
   try {
